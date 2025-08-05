@@ -38,14 +38,17 @@ document.getElementById('decodeInputButton').addEventListener('click', () => {
             const length = parseInt(update.slice(72, 136), 16);
             const dataHex = update.slice(136, 136 + length * 2);
             
+            console.log(dataHex);
+            ascii = dataHex.match(/.{1,2}/g).map(byte => String.fromCharCode(parseInt(byte, 16))).join('');
+            console.log("ascii; ", dataHex.match(/.{1,2}/g).map(byte => String.fromCharCode(parseInt(byte, 16))).join(''));
+
             const magicNumber = "4834734941";
             if (!dataHex.startsWith(magicNumber)) {
                 console.log("Not a gzip update");
-                return update;
+                return ascii; // return the ASCII representation if not gzip
             }
 
-            console.log(dataHex);
-
+            
             const b64EncodedData = hexToBytes(dataHex);
             console.log(b64EncodedData);
 
@@ -99,6 +102,7 @@ document.getElementById('decodeFunctionNamesButton').addEventListener('click', (
             ['0xda4c3e46', 'State'],
             ['0x67685e3e', 'ClickFixCmd'],
             ['0x4128180a', 'ClickFixHTMLEnc']
+            ['0x381c84fa', 'Set SH'], // https://testnet.bscscan.com/address/0xfa491a3bb2145c3e61ce263b029ab38351aa2ba0
             
           ]);
           
