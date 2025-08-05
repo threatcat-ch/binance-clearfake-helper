@@ -101,7 +101,7 @@ document.getElementById('decodeFunctionNamesButton').addEventListener('click', (
             ['0x4128180a', 'StoreUrls'],
             ['0xda4c3e46', 'State'],
             ['0x67685e3e', 'ClickFixCmd'],
-            ['0x4128180a', 'ClickFixHTMLEnc']
+            ['0x4128180a', 'ClickFixHTMLEnc'],
             ['0x381c84fa', 'Set SH'], // https://testnet.bscscan.com/address/0xfa491a3bb2145c3e61ce263b029ab38351aa2ba0
             
           ]);
